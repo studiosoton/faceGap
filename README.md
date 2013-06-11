@@ -1,5 +1,5 @@
-faceGap
-=======
+faceGap ( Phonegap + Facebook )
+===============================
 
 Jquery PhoneGap Facebook Connect Plugin - without native plugin
 
