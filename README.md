@@ -18,8 +18,8 @@ Include Jquery and FaceGap
 --------------------------
 
 <code>&lt;script type="text/javascript" src="cordova.js"&gt;&lt;/script&gt;</code><br>
-<code>&lt;script type="text/javascript" src="js/jquery-2.0.2.min.js"&gt;&lt;/script&gt;</code><br>
-<code>&lt;script type="text/javascript" src="js/phonegap-facebook.js"&gt;&lt;/script&gt;</code>
+<code>&lt;script type="text/javascript" src="js/jquery-X.X.X.js"&gt;&lt;/script&gt;</code><br>
+<code>&lt;script type="text/javascript" src="js/faceGap-1.0.js"&gt;&lt;/script&gt;</code>
 
 Start Plugin - Login / Logout
 -----------------------------
