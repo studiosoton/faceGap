@@ -24,7 +24,7 @@ Include Jquery and FaceGap
 Start Plugin - Login / Logout
 -----------------------------
 
-<code>
+<pre>
 document.addEventListener("deviceready", onDeviceReady, false);<br>
 function onDeviceReady() {<br>
 	//Config Plugin<br>
@@ -56,4 +56,4 @@ function onDeviceReady() {<br>
 		alert('message > '+event.message);
 	}	
 }
-<code>
+</pre>
