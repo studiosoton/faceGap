@@ -25,17 +25,17 @@ Start Plugin - Login / Logout
 -----------------------------
 
 <code>
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {	
-	//Config Plugin
-	var config = {
-		app_id		: '',
-		secret		: '',
-		escope		: 'publish_stream,email',
-		host		: '', //App Domain ( Facebook Developer ).
-		onLogin 	: _onLogin,
-		onLogout 	: _onLogout
-	};
+document.addEventListener("deviceready", onDeviceReady, false);<br>
+function onDeviceReady() {<br>
+	//Config Plugin<br>
+	var config = {<br>
+		app_id		: '',<br>
+		secret		: '',<br>
+		escope		: 'publish_stream,email',<br>
+		host		: '', //App Domain ( Facebook Developer ).<br>
+		onLogin 	: _onLogin,<br>
+		onLogout 	: _onLogout<br>
+	};<br><br>
 	
 	//Login Facebook
 	$(document).FaceGap(config);
