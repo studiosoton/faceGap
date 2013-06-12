@@ -25,17 +25,17 @@ Start Plugin - Login / Logout
 -----------------------------
 
 <pre>
-document.addEventListener("deviceready", onDeviceReady, false);<br>
-function onDeviceReady() {<br>
-	//Config Plugin<br>
-	var config = {<br>
-		app_id		: '',<br>
-		secret		: '',<br>
-		escope		: 'publish_stream,email',<br>
-		host		: '', //App Domain ( Facebook Developer ).<br>
-		onLogin 	: _onLogin,<br>
-		onLogout 	: _onLogout<br>
-	};<br><br>
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {	
+	//Config Plugin
+	var config = {
+		app_id		: '',
+		secret		: '',
+		escope		: 'publish_stream,email',
+		host		: '', //App Domain ( Facebook Developer ).
+		onLogin 	: _onLogin,
+		onLogout 	: _onLogout
+	};
 	
 	//Login Facebook
 	$(document).FaceGap(config);
@@ -56,4 +56,25 @@ function onDeviceReady() {<br>
 		alert('message > '+event.message);
 	}	
 }
+</pre>
+
+FB API
+------
+<pre>	
+	//Function callback response
+	function _callback( event ){
+		alert('_callback status > '+event.status);
+		alert('_callback data > '+event.data);
+		alert('_callback message > '+event.message);
+	}
+	//Config Object FB API
+	var _fb = {
+		path	:	'/me/friends',
+		method	:	'GET',
+		params	:	{ limit : 5 },
+		cb	:	_callback //Function callback response
+	};
+	
+	//Get FB API
+	$(document).FaceGap('fb_api', _fb);	
 </pre>
