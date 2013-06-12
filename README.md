@@ -27,6 +27,7 @@ Start Plugin - Login / Logout
 <pre>
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {	
+	
 	//Config Plugin
 	var config = {
 		app_id		: '',
@@ -67,6 +68,7 @@ FB API
 		alert('_callback data > '+event.data);
 		alert('_callback message > '+event.message);
 	}
+	
 	//Config Object FB API
 	var _fb = {
 		path	:	'/me/friends',
