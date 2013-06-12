@@ -32,7 +32,7 @@ function onDeviceReady() {
 	var config = {
 		app_id		: '',
 		secret		: '',
-		escope		: 'publish_stream,email',
+		scope		: 'publish_stream,email',
 		host		: '', //App Domain ( Facebook Developer ).
 		onLogin 	: _onLogin,
 		onLogout 	: _onLogout
