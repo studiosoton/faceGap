@@ -24,6 +24,7 @@
         onLogout: ""
     };
     var facebook_graph = "https://graph.facebook.com";
+    var facebook_base = "https://www.facebook.com";
     var facebook_token = "";
     var ref;
     var ref_logout;
@@ -148,9 +149,9 @@
         },
         logout: function () {
             if (facebook_token !== "") {
-                var url_logout = facebook_graph + "/logout.php?access_token=" + facebook_token + "&confirm=1&next=" + config.host + "/connect/logout_success.html";
+                var url_logout = facebook_base + "/logout.php?access_token=" + facebook_token + "&confirm=1&next=" + config.host + encodeURIComponent("/connect/logout_success.html");
                 ref_logout = window.open(url_logout, "_blank", "location=no");
-                ref_logout.addEventListener("loadstart", function (event) {
+                ref_logout.addEventListener("loadstop", function (event) {
                     methods.changeLogout(event.url);
                 });
             } else {
@@ -163,7 +164,7 @@
         },
         fb_ui: function (_config) {
             $.extend(_config, {redirect_uri : config.host, display : "popup"});
-            var ui_url = "https://www.facebook.com/dialog/" + _config.method + "?app_id=" + config.app_id;
+            var ui_url = facebook_base + "/dialog/" + _config.method + "?app_id=" + config.app_id;
             for (var elements in _config)
             {
                 if (elements != "method" && elements != "cb")
@@ -179,13 +180,17 @@
                 var pos = event.url.indexOf(config.host);
                 if (pos !== -1 && methods._isFunction(_config.cb))
                 {
-                    _config.cb({status : 1, data : event.url.substring(pos+1), message : "success"});
                     ref.close();
+                    var data = event.url.substring(pos+config.host.length+1).replace("?", "").replace("/", "");
+                    var data_arr = data.split("=");
+                    data = {};
+                    data[data_arr[0]] = data_arr[1];
+                    _config.cb({status : 1, data : data, message : "success"});
                 }
             });
             ref.addEventListener("exit", function (event) {
                 if (methods._isFunction(_config.cb))
-                    _config.cb({status : 0, data : null, message : "Popup closed by user"});
+                    _config.cb({status : 0, data : null, message : "Popup closed"});
             });
         },
         fb_api: function (_config) {
