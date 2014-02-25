@@ -81,6 +81,32 @@ FB API
 	$(document).FaceGap('fb_api', _fb);	
 </pre>
 
+
+FB UI
+------
+<pre>	
+	//Function callback response
+	function _callback( event ){
+		alert('_callback status > '+event.status);
+		alert('_callback data > '+event.data);
+		alert('_callback message > '+event.message);
+	}
+	
+	//Config Object FB UI
+	var _fb = {
+                method      : "feed", //only method accepted actually
+                link        : "https://www.link.to.share/",
+                caption     : "My Caption",
+                description : "My Description",
+                picture     : "http://my.path/my.image.png",
+                actions     : { name : "custom name", link : 'http://my.custom.link/'},
+		cb	    :	_callback //Function callback response
+	};
+	
+	//Get FB API
+	$(document).FaceGap('fb_ui', _fb);	
+</pre>
+
 BUGS AND CONTRIBUTIONS
 ----------------------
 
