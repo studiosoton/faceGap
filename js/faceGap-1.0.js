@@ -109,7 +109,7 @@
         },
         getMe: function (_t) {
             if (!_hasLogin) {
-                var url_me = "https://graph.facebook.com/me?access_token=" + _t;
+                var url_me = facebook_graph+"/me?access_token=" + _t;
                 $.ajax({
                     url: url_me,
                     dataType: "jsonp",
@@ -195,7 +195,7 @@
         },
         fb_api: function (_config) {
             if (facebook_token !== "") {
-                var url_me = facebook_graph + "" + _config.path + "?access_token=" + facebook_token;
+                var url_me = facebook_graph + _config.path + "?access_token=" + facebook_token;
                 $.ajax({
                     url: url_me,
                     dataType: "jsonp",
